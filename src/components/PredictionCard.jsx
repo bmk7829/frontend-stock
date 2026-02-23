@@ -5,15 +5,9 @@ import { useMarketStatus } from '../hooks/useMarketStatus';
 export default function PredictionCard({ prediction, lastDate }) {
     const isOpen = useMarketStatus();
 
-    if (!isOpen) {
-        return (
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center h-full text-center">
-                <Clock className="text-slate-400 dark:text-slate-500 mb-3" size={32} />
-                <h3 className="text-slate-700 dark:text-slate-300 font-bold mb-1">Market Closed</h3>
-                <span className="text-sm text-slate-500 dark:text-slate-400">AI predictions are paused until the next active trading session.</span>
-            </div>
-        );
-    }
+    // We want the AI predictions and other data to still show even if the market is closed
+
+
 
     if (!prediction) {
         return (
